@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
  xmlns:context="http://www.springframework.org/schema/context"
  xmlns:mvc="http://www.springframework.org/schema/mvc" 
- xmlns:mongo="http://www.springframework.org/schema/data/mongo"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:p="http://www.springframework.org/schema/p"
  xsi:schemaLocation="
@@ -17,8 +16,7 @@
  <context:component-scan base-package="com.programmingfree.springservice.controller" />
  <mvc:annotation-driven />
  <mvc:default-servlet-handler/>
- <mongo:mongo host="127.0.0.1" port="27017" />
-	<mongo:db-factory dbname="hpInc" />
+
  
  <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
  <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> 

@@ -3,10 +3,10 @@ routerApp.factory('HpIncHttpService', [ '$http', '$q',function( $http, $q) {
 
 			return {
 				/* Fetches the Recent Cases for the logged in agent */
-				getHttpPostConnection : function(url) {
+				getHttpPostConnection : function(url ,req) {
 					var deferred = $q.defer();				
 
-					$http.post(url).success(function(data, status) {
+					$http.post(url , req).success(function(data, status) {
 
 						// Some extra manipulation on data if you want...
 						deferred.resolve(data);

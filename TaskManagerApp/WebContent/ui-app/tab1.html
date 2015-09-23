@@ -1,0 +1,105 @@
+</br>
+<div align="left">
+	<b>Viewing timesheets for supplier:	PVAMU LLC 	</b>
+	</br>
+	
+	<b>TimeSheet duration date : </b>  <h3>Sep 21 - Sep  27 
+	<span style="color:Red">Not submitted </span> 
+	<!-- <span style="color:yellow">Submitted</span>
+	<span style="color:red">Rejected</span>
+	<span style="color:green">Approved</span> -->
+	</h3>
+
+	<div class="panel panel-default panel-info">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">IT - Software Engineer III</h3>
+		</div>
+		<div class="panel-body">
+		
+		<div class="row">
+
+				<div class="col-md-2">
+					<b>Select your project </b>
+				</div>
+				<div class="col-md-8">
+					<b> <select ng-model="creit.projectName" bs-selectbox>
+							<option value="67169">67169 - WCS Migration</option>
+							<option value="67170">67170 - WCS devlopment</option>
+							<option value="67171">67171 - WCS Env</option>
+					</select>
+					</b>
+				</div>
+
+			</div>
+			</br>	
+		
+			<div class="row">
+					<div class="col-md-2"><b></b></div>
+					<div class="col-md-2"><b></b></div>
+					<div class="col-md-1" align="center"><b>Hours</b></div>
+					<div class="col-md-5" align="center"><b>Comments</b></div>
+			</div>
+		
+			<div class="row">
+					<div class="col-md-2"><b>SUN</b></div>
+					<div class="col-md-2"><b>09/21/2015</b></div>
+					<div class="col-md-2"><input  type="text" class="col-md-6"  ng-model="creit.sun"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.sunText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>MON</b></div>
+					<div class="col-md-2"><b>09/22/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.mon"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.monText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>TUE</b></div>
+					<div class="col-md-2"><b>09/23/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.tue"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.tueText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>WED</b></div>
+					<div class="col-md-2"><b>09/24/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.wed"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.wedText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>THU</b></div>
+					<div class="col-md-2"><b>09/25/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.thu"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.thuText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>FRI</b></div>
+					<div class="col-md-2"><b>09/26/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.fri"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.friText"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>SAT</b></div>
+					<div class="col-md-2"><b>09/27/2015</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.sat"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.satText"></textarea></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-1"><b></b></div>
+					<div class="col-md-3"><b>Total Hours</b></div>
+					
+					<div class="col-md-1">{{creit.satText+creit.friText}}</div>
+					<div class="col-md-5"></div>
+			</div>		
+		</div>
+		<div class="row">
+		<div class="col-md-6"></div>
+			<div class="col-md-3"><button type="button" class="btn btn-primary" ng-click="saveTimeSheet()"  >Submit TimeSheet</button></div>
+		</div>
+		</br>
+	</div>
+	
+	
+
+
+</div>

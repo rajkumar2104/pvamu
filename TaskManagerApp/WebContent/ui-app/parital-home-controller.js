@@ -81,6 +81,20 @@ function demoController($scope,ngTableParams, HpIncHttpService, $filter) {
 			});
  }
  data();
+ 
+ 
+ 		$scope.tabs = [
+        	    { title:'raj', content:'Dynamic content 1' },
+        	    { title:'Kumar', content:'Dynamic content 2', disabled: true }
+        	  ];
+
+        	  $scope.alertMe = function() {
+        	    setTimeout(function() {
+        	     // $window.alert('You\'ve selected the alert tab!');
+        	    });
+        	  };
+ 
+ 
 //  this.tableParams = new ngTableParams({
 //    // initial sort order
 //    sorting: { name: "asc" } 
@@ -88,5 +102,7 @@ function demoController($scope,ngTableParams, HpIncHttpService, $filter) {
 //    dataset: simpleList
 //  });
 }
+
+
 
 

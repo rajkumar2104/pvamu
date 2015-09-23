@@ -1,9 +1,29 @@
 <div class="jumbotron text-center">
-    <h1>Mongo DB </h1>
-    <p>This page demonstrates <span class="text-danger">nested</span> views.</p>
+   <div>
+   		<div class="row">
+   			<div class="col-md-6"></div>
+   			<div class="col-md-3"><b>Select employee name </b> </div>
+   			<div class="col-md-3">
+   				<select ng-model="employeeName" bs-selectbox>
+					 <option value="rajkumar">Rajkumar Murugesan</option>
+					 <option value="vandana">Vandana Sharma</option>
+					 <option value="harsha">Harsha Havalimane</option>
+				</select>
+   			</div>
+   		</div>
+   </div>
+   
+<div>
+  <tabset>
+    <tab ng-repeat="tab in tabs" heading="{{ tab.heading }}" active="tab.active" >
+         <div ng-include="tab.template"></div>
+    </tab>
+  </tabset>
+</div>    
     
-    <a ui-sref=".list" class="btn btn-primary">List</a>
-    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a>
+    
+  <!--   <a ui-sref=".list" class="btn btn-primary">List</a>
+    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a> -->
     
 </div>
 
