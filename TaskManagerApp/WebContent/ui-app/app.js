@@ -131,6 +131,88 @@ routerApp.controller('TabsetCtrl', ['$scope', '$rootScope',	'HpIncHttpService',f
                            	
                            	$scope.saveTimeSheet = function(){
                            		console.log("timeSheet");
+//                           		private Date date ;
+//                           		private float workedHour ;
+//                           		private String day;
+//                           		private String comments;
+//                           		private String projectName;
+//                           		private String employeeId;
+                           		
+                           		
+                           		var timeSheet = [];
+                           		var sheet1 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.sun,
+                           				comments : $scope.creit.sunText,
+                           				projectName : $scope.creit.projectName,                           				
+                           				//day : $scope.creit.e1.amount                           				
+                           				
+                           		};
+                           		
+                           		var sheet2 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.mon,
+                           				comments : $scope.creit.monText,
+                           				projectName : $scope.creit.projectName,                           				
+                           				
+                           		};
+                           		var sheet3 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.tue,
+                           				comments : $scope.creit.tueText,
+                           				projectName : $scope.creit.projectName,                         				
+                           				
+                           		};
+                           		var sheet4 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.wed,
+                           				comments : $scope.creit.wedText,
+                           				projectName : $scope.creit.projectName,                          				
+                           				
+                           		};
+                           		var sheet5 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.thu,
+                           				comments : $scope.creit.thuText,
+                           				projectName : $scope.creit.projectName,                            				
+                           				
+                           		};
+                           		
+                           		var sheet6 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.fri,
+                           				comments : $scope.creit.friText,
+                           				projectName : $scope.creit.projectName,                         				
+                           				
+                           		};
+                           		
+                           		var sheet7 = {
+                           				employeeId : $scope.employeeName,
+                           				workedHour : $scope.creit.sat,
+                           				comments : $scope.creit.satText,
+                           				projectName : $scope.creit.projectName,                          				
+                           				
+                           		};
+                           		timeSheet.push(sheet1);
+                           		timeSheet.push(sheet2);
+                           		timeSheet.push(sheet3);
+                           		timeSheet.push(sheet4);
+                           		timeSheet.push(sheet5);
+                           		timeSheet.push(sheet6);
+                           		timeSheet.push(sheet7);
+                           		
+                           	 var promise = HpIncHttpService.getHttpPostConnection("http://localhost:8080/TaskManagerApp/employee/save/timesheet" , timeSheet);
+                     		
+                 			promise.then(function(result) {
+                 				results = result;
+                 				console.log(result);
+                 				
+                 			}, function(reason) {
+                 			  alert('Failed: ' + reason);
+                 			});
+                           		
+                           		
+                           		
                            	}
                            }]);
 

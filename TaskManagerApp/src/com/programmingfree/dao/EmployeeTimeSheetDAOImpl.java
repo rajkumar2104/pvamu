@@ -19,13 +19,13 @@ public class EmployeeTimeSheetDAOImpl implements EmployeeTimeSheetDAO {
 	
 	@Override
 	public List<EmployeeTimeSheet> savetimeSheet(List<EmployeeTimeSheet> req) {
-		mongoOps.insert(req.get(0),EMPLOYEE_TIMESHEET_COLLECTION );
+		mongoOps.insert(req,EMPLOYEE_TIMESHEET_COLLECTION );
 		return req;
 	}
 
 	@Override
 	public List<EmployeeExpences> saveExpences(List<EmployeeExpences> req) {
-		mongoOps.insert(req.get(0),EMPLOYEE_EXPENCES_COLLECTION );
+		mongoOps.insert(req,EMPLOYEE_EXPENCES_COLLECTION );
 		return req;
 	}
 
