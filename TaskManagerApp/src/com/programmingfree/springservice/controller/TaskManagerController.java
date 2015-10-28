@@ -1,7 +1,10 @@
 package com.programmingfree.springservice.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +16,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.programmingfree.springservice.TaskManagerService;
 import com.programmingfree.springservice.TaskManagerServiceImpl;
+import com.programmingfree.springservice.TestService;
 import com.programmingfree.springservice.domain.Person;
+import com.programmingfree.springservice.domain.TestHelper;
 
 
 @RestController
@@ -21,7 +26,7 @@ public class TaskManagerController {
 	
 	
 	TaskManagerService taskmanagerservice = new TaskManagerServiceImpl();
-	
+	TestService testSer = new TestService();
 	 @RequestMapping(value="/tasks",method = RequestMethod.GET,headers="Accept=application/json")
 	 public List<Person> getAllTasks() {	 
 		
@@ -54,6 +59,18 @@ public class TaskManagerController {
 	  return  taskmanagerservice.updateTask(task);
 	
 	 }
+	 
+	 
+	 @RequestMapping(value="/tasks/getChartValue",method = RequestMethod.GET,headers="Accept=application/json")
+	 public List<TestHelper> chartApp() {	
+		 
+		 
+	  return   testSer.getValues();
+	
+	 }
+	 
+	 
+	 
 	 
 //	 @RequestMapping(value="/tasks/{taskId}/{taskStatus}",method = RequestMethod.POST,headers="Accept=application/json")
 //	 public List<Task> changeTaskStatus(@PathVariable int taskId,@PathVariable String taskStatus) throws ParseException {	

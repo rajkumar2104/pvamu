@@ -1,0 +1,35 @@
+/* Fix for Bootstrap 3 with Angular UI Bootstrap */
+.modal {
+	display: block;
+}
+
+/* Custom dialog/modal headers */
+.dialog-header-error {
+	background-color: #d2322d !important;
+}
+
+.dialog-header-wait {
+	background-color: #428bca;
+}
+
+.dialog-header-notify {
+	background-color: #eeeeee;
+}
+
+.dialog-header-success {
+	background-color: #7E905B;
+}
+
+.dialog-header-confirm {
+	background-color: #333333;
+}
+
+.dialog-header-error span,.dialog-header-error h4,.dialog-header-wait span,.dialog-header-wait h4,.dialog-header-confirm span,.dialog-header-confirm h4, .dialog-header-success span,.dialog-header-success h4
+	{
+	color: #ffffff;
+}
+
+/* Ease Display */
+.pad { 
+	padding: 25px;
+}

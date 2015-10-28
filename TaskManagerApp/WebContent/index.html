@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Gender-wise Pass Percentage</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+
+</head>
+ 
+<body>
+<div>
+<table>
+        <tr>
+                <td align="center">
+					<div id="outerDiv" style="width:100%">
+							<div  id="placeholder"></div>
+					</div>
+                 </td>
+         </tr>
+</table>
+</div>
+ <div id="container" style="height: 400px"></div>
+ 
+<script type="text/javascript">
+ 
+ 
+ $(function () {
+    $(document).ready(function() {
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+        
+        var currentYear = new Array(); 
+        var lastYear = new Array(); 
+        var midenVal = new Array(); 
+        $.getJSON('http://localhost:8080/TaskManagerApp/tasks/getChartValue', function(jsonData){
+        	console.log(jsonData);
+        	
+        	for (i = 0; i < jsonData.length; i++){
+        		 var d = new Date();
+        		    d.setTime(jsonData[i].date);
+        		  var dateUtc =  Date.UTC(d.getFullYear(), d.getMonth()+1 , d.getDate());
+        		  console.log(dateUtc );
+        		  
+        		currentYear.push([dateUtc, parseInt(jsonData[i].currentYearVal)]);
+        		lastYear.push([dateUtc, parseInt(jsonData[i].lastYearVal)]);
+        		midenVal.push([dateUtc, parseInt(jsonData[i].midemVal)]);
+            }
+        	
+        	
+        var chart;
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function() {
+ 
+                        // set up the updating of the chart each second
+                       // var series = this.series[0];
+                       // var series2 = this.series[1];
+                        console.log("Helllo");
+                    }
+                }
+            },
+            title: {
+                text: 'Default Date Time Chart & Opposite YAxis'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: [{
+                title: {
+                    text: 'Amount'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            }],
+            tooltip: {
+            	
+            	 formatter: function () {
+                     var s = '<b> Date : ' + Highcharts.dateFormat('%B %d', this.x) + '</b>';
+					
+					var med = (this.points[0].y / this.points[1].y).toFixed(2)
+					console.log(med);
+                     $.each(this.points, function () {
+                    	 if (this.series.name == 'Median Val'){
+                    		 s += '<br/>' + this.series.name + ': ' + med + '%';
+                    		  
+                    	 }else{
+                         s += '<br/>' + this.series.name + ': ' +
+                             this.y ; 
+                         }
+                     });
+
+                     return s;
+                 },
+                 shared: true
+            	
+            	
+          
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [
+                {
+                name: 'Current Year Val',
+                 data: currentYear 
+            },
+                {
+                name: 'Last Year Val',
+                 data: lastYear
+            },
+             {
+                name: 'Median Val',
+                 data: midenVal,
+                 dashStyle: 'shortdash'
+            }
+            
+            ]
+        });
+    });
+    });
+});
+ 
+
+
+ 
+
+ 
+</script>
+ 
+</body>
+</html>

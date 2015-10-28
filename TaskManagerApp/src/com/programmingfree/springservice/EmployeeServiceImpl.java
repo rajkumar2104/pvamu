@@ -27,4 +27,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return dao.saveExpences(req);
 	}
 
+	@Override
+	public List<EmployeeTimeSheet> gettimeSheet(String name) {
+		// TODO Auto-generated method stub
+		return dao.gettimeSheet(name);
+	}
+
+	@Override
+	public List<EmployeeExpences> getExpences(String name) {
+		// TODO Auto-generated method stub
+		return dao.getExpences(name);
+	}
+
 }

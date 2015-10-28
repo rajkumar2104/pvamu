@@ -26,7 +26,7 @@ public class DBUtility {
 				
 				//MongoCredential  uri = MongoCredential.createMongoCRCredential("root",DB_NAME,"admin".toCharArray());
 				
-				MongoClientURI uri = new MongoClientURI("mongodb://root:admin@ds041643.mongolab.com:41643/?authSource=pvamu");
+				MongoClientURI uri = new MongoClientURI("mongodb://student:admin123@ds041643.mongolab.com:41643/?authSource=pvamu");
 				
 				MongoClient mongo = new MongoClient(uri);
 				MongoOperations mongoOps = new MongoTemplate(mongo, DB_NAME);

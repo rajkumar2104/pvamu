@@ -8,7 +8,9 @@ import com.programmingfree.springservice.domain.EmployeeTimeSheet;
 public interface EmployeeTimeSheetDAO {
 
 	List<EmployeeTimeSheet> savetimeSheet(List<EmployeeTimeSheet> req);
-	List<EmployeeExpences> saveExpences(List<EmployeeExpences> req);	
+	List<EmployeeExpences> saveExpences(List<EmployeeExpences> req);
+	List<EmployeeTimeSheet> gettimeSheet(String name);
+	List<EmployeeExpences> getExpences(String name);
 	
 	
 }

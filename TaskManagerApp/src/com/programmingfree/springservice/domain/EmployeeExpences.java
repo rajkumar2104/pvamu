@@ -11,17 +11,16 @@ public class EmployeeExpences implements Serializable {
 	 */
 	private static final long serialVersionUID = -7681598422725172466L;
 
-	private Date date ;
+	private String date ;
 	private float amount ;
 	private String expencesType;
 	private String comments;
 	private String projectName;
 	private String employeeId;
-	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public float getAmount() {
@@ -109,4 +108,6 @@ public class EmployeeExpences implements Serializable {
 		return "EmployeeExpences [date=" + date + ", amount=" + amount + ", expencesType=" + expencesType
 				+ ", comments=" + comments + ", projectName=" + projectName + ", employeeId=" + employeeId + "]";
 	}
+	
+	
 }

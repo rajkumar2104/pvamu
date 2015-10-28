@@ -10,17 +10,16 @@ public class EmployeeTimeSheet implements Serializable {
 	 */
 	private static final long serialVersionUID = 28351839853066330L;
 	
-	private Date date ;
+	private String date ;
 	private float workedHour ;
 	private String day;
 	private String comments;
 	private String projectName;
 	private String employeeId;
-	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public float getWorkedHour() {
@@ -105,9 +104,10 @@ public class EmployeeTimeSheet implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "employeeTimeSheet [date=" + date + ", workedHour=" + workedHour + ", day=" + day + ", comments="
+		return "EmployeeTimeSheet [date=" + date + ", workedHour=" + workedHour + ", day=" + day + ", comments="
 				+ comments + ", projectName=" + projectName + ", employeeId=" + employeeId + "]";
 	}
+	
 	
 	
 
