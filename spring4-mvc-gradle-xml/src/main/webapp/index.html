@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   	<link rel="stylesheet" href="client/core/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="client/core/bootstrap/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" media="screen, print" href="client/core/dialogs/dialogs.min.css">
+		<link rel="stylesheet" media="screen, print" href="client/core/dialogs/dialogs-bootstrap3.css">	
+		<link rel="stylesheet" media="screen, print" href="client/core/ng-table/ng-table.css">	
+   		<style>
+       		 .navbar { border-radius:0; }
+    	</style>
+
+	   	
+   
+	   	<script src="client/core/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>	
+		<script src="client/core/angular/angular.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-route.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-cookies.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-ui-router.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-route.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-sanitize.min.js" type="text/javascript"></script>
+  		<script src="client/core/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	    <script src="client/core/bootstrap/ui-bootstrap-tpls-0.10.0.min.js" type="text/javascript"></script>
+	    <script src="client/core/dialogs/dialogs.min.js" type="text/javascript"></script>	
+		<script src="client/core/ng-table/ng-table.js" type="text/javascript"></script>
+	    <script src="client/core/ng-table/ng-table-export.js" type="text/javascript"></script>
+	    
+	    <script src="client/application/app.js"></script>
+	    <script src="client/application/login/loginFormController.js"></script>
+	    <script src="client/application/service.js"></script>
+	    <script src="client/application/parital-home-controller.js"></script>  
+    
+    
+</head>
+
+<body ng-app="routerApp">
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+    <img alt="PVAMU time sheet" src="client/core/images/timesheet.jpg" class="img-circle" height="50px" width="50px">
+        <a class="navbar-brand" ui-sref="#"> Online Time sheet By PVAMU</a>
+    </div>r
+  <!--   <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="about">About</a></li>
+    </ul> -->
+</nav>
+
+
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<div class="text-center">
+    <p>Powered by <a href="#" target="_blank">pvamu student</a></p>   
+</div>
+
+</body>
+</html>

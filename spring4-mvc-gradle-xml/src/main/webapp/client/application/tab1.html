@@ -1,0 +1,114 @@
+</br>
+
+   
+
+
+<div align="left">
+	<b>Viewing timesheets for supplier:	PVAMU LLC 	</b>
+	</br>
+	
+	<b>Select time sheet duration week : </b>  
+	  
+    
+	<h3><span style="color:Red">Not submitted/Approved </span> <!-- <span style="color:yellow">Submitted</span>
+	<span style="color:red">Rejected</span>
+	<span style="color:green">Approved</span> -->
+	</h3>
+	<form name="searchCustomerForm"> 
+	<div class="panel panel-default panel-info">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">IT - Software Engineer III</h3>
+		</div>
+		<div class="panel-body">
+		
+		<div class="row">
+
+				<div class="col-md-2">
+					<b>Select your project </b>
+				</div>
+				<div class="col-md-6">
+					<b> <select class="form-control" ng-model="creit.projectName" bs-selectbox>
+							<option value="67169">67169 - WCS Migration</option>
+							<option value="67170">67170 - WCS devlopment</option>
+							<option value="67171">67171 - WCS Env</option>
+					</select>
+					</b>
+				</div>
+
+			</div>
+			</br>	
+		
+			<div class="row">
+					<div class="col-md-2"><b></b></div>
+					<div class="col-md-2"><b></b></div>
+					<div class="col-md-1" align="center"><b>Hours</b></div>
+					<div class="col-md-5" align="center"><b>Comments</b></div>
+			</div>
+		<div class="row"><div class="col-md-offset-4 col-md-7"><span ng-show="searchCustomerForm.$dirty && searchCustomerForm.$error.required" style="color:blue">All Hours & Commands are required</span></div></div>
+			<div class="row">
+					<div class="col-md-2"><b>SUN</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate1}}</b></div>
+					<div class="col-md-2"><input  type="text" class="col-md-6"  ng-model="creit.sun"  value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.sunText" required="required"></textarea></div>
+					 <!-- div class="col-md-2">
+					 	<span ng-show="searchCustomerForm.username.$dirty && searchCustomerForm.username.$error.required" class="help-block">Hours Required</span>
+					 	<span ng-show="searchCustomerForm.username.$dirty && searchCustomerForm.username.$error.required" class="help-block">Command Required</span>
+					 	</div-->
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>MON</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate2}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.mon" value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.monText" required="required"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>TUE</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate3}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.tue" ></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.tueText" required="required"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>WED</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate4}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.wed" value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.wedText" required="required"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>THU</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate5}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.thu" value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.thuText" required="required"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>FRI</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate6}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.fri" value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.friText" required="required"></textarea></div>
+			</div>
+			<div class="row">
+					<div class="col-md-2"><b>SAT</b></div>
+					<div class="col-md-2"><b>{{formData.dueDate7}}</b></div>
+					<div class="col-md-2"><input type="text" class="col-md-6" ng-model="creit.sat" value="0" required="required"></div>
+					<div class="col-md-5"><textarea rows="2" cols="50" ng-model="creit.satText" required="required"></textarea></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-1"><b></b></div>
+					<div class="col-md-3"><b>Total Hours</b></div>
+					
+					<div class="col-md-1"></div>
+					<div class="col-md-5"></div>
+			</div>		
+		</div>
+		<div class="row">
+		<div class="col-md-6"></div>
+			<div class="col-md-3"><button type="button" class="btn btn-primary"  ng-disabled="!searchCustomerForm.$valid"  ng-click="saveTimeSheet()"  >Submit TimeSheet</button></div>
+		</div>
+		</br>
+	</div>
+	</form>
+	
+
+
+</div>

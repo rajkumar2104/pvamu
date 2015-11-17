@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   	<link rel="stylesheet" href="client/core/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="client/core/bootstrap/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" media="screen, print" href="client/core/dialogs/dialogs.min.css">
+		<link rel="stylesheet" media="screen, print" href="client/core/dialogs/dialogs-bootstrap3.css">	
+		<link rel="stylesheet" media="screen, print" href="client/core/ng-table/ng-table.css">	
+   		<style>
+       		 .navbar { border-radius:0; }
+    	</style>
+
+	   	
+   
+	   	<script src="client/core/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>	
+		<script src="client/core/angular/angular.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-route.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-cookies.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-ui-router.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-route.min.js" type="text/javascript"></script>
+	    <script src="client/core/angular/angular-sanitize.min.js" type="text/javascript"></script>
+  		<script src="client/core/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	    <script src="client/core/bootstrap/ui-bootstrap-tpls-0.10.0.min.js" type="text/javascript"></script>
+	    <script src="client/core/dialogs/dialogs.min.js" type="text/javascript"></script>	
+		<script src="client/core/ng-table/ng-table.js" type="text/javascript"></script>
+	    <script src="client/core/ng-table/ng-table-export.js" type="text/javascript"></script>
+	    
+	    
+	    <script src="client/application/app.js"></script>
+	    <script src="client/application/login/loginFormController.js"></script>
+	    <script src="client/application/login/registoration.js"></script>
+	    <script src="client/application/service.js"></script>
+	    <script src="client/application/parital-home-controller.js"></script>  
+	    <script src="client/application/header/HeaderDirective.js"></script>  
+    
+    
+</head>
+
+<body ng-app="routerApp">
+
+
+<div class="container">
+<div id="header" ui-view="header" >	</div>
+<div ui-view></div>
+</div>
+
+<div class="text-center">
+    <p>Powered by <a href="#" target="_blank">pvamu student</a></p>   
+</div>
+
+</body>
+</html>

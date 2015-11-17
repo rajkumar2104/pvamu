@@ -1,0 +1,42 @@
+<div class="jumbotron text-center">
+   <div>
+   		<div class="row">
+   			<div class="col-md-6"></div>
+   			<div class="col-md-3"><b>Select employee name </b> </div>
+   			<div class="col-md-3">
+   				<select class="form-control" ng-model="employeeName" bs-selectbox >
+					 <option value="rajkumar">Rajkumar Murugesan</option>
+					 <option value="vandana">Vandana Sharma</option>
+					 <option value="harsha">Harsha Havalimane</option>
+				</select>
+   			</div>
+   		</div>
+   </div>
+   
+    <div class="row">
+        <div class="col-md-3">
+            <p class="input-group">            
+              <input ng-model="formData.dueDate" type="button" id="dueDate" name="dueDate" class="form-control" datepicker-options="dateOptions" datepicker-popup="mm-dd-yyyy" datepicker-append-to-body="true" is-open="data.isOpen" min-mode="week" datepicker-mode="day"	show-button-bar="true" ng-click="data.isOpen = true"/>
+    
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>       
+    </div> 
+   
+<div>
+  <tabset>
+    <tab ng-repeat="tab in tabs" heading="{{ tab.heading }}" active="tab.active" >
+         <div ng-include="tab.template"></div>
+    </tab>
+  </tabset>
+</div>    
+    
+    
+  <!--   <a ui-sref=".list" class="btn btn-primary">List</a>
+    <a ui-sref=".paragraph" class="btn btn-danger">Paragraph</a> -->
+    
+</div>
+
+<div ui-view></div>

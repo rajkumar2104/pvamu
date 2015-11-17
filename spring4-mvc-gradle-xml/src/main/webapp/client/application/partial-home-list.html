@@ -1,0 +1,21 @@
+<ul>
+    <li ng-repeat="dog in dogs">{{ dog }}</li>
+  <hr />   
+</ul>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+      <h3>ngTable directive</h3>
+      <table ng-table="tableParams" class="table table-striped table-bordered table-hover table-condensed ">
+        <tr ng-repeat="row in $data">
+        <td data-title="'Id'" sortable="'rawaddr_id'">{{row.rawaddr_id}}</td>
+          <td data-title="'Key'" sortable="'rawaddr_hash_ky'">{{row.rawaddr_hash_ky}}</td>
+          <td data-title="'Address'" sortable="'location_addr1_tx'">{{row.location_addr1_tx +' '+ row.location_addr2_tx + ' '+ row.location_city_nm +' '+ row.location_state_cd}}</td>
+          <td data-title="'location Nm'">{{row.location_nm}}</td>
+        </tr>
+      </table>
+    </div>
+ 
+  </div>

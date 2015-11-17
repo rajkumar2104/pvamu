@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+       		http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/data/mongo 
+            http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/util 
+            http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<mongo:mongo-client id="cssMongo" credentials="student:admin123@pvamu"
+		host="ds041643.mongolab.com" port="41643">
+		<mongo:client-options connections-per-host="2"
+			threads-allowed-to-block-for-connection-multiplier="4"
+			connect-timeout="1000" max-wait-time="12000" />
+	</mongo:mongo-client>
+
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongo" ref="cssMongo" />
+		<constructor-arg name="databaseName" value="pvamu" />
+		<!-- <constructor-arg name="userCredentials" ref="mongoCredentials"/> -->
+		<property name="writeConcern">
+			<util:constant static-field="com.mongodb.WriteConcern.SAFE" />
+		</property>
+		<property name="readPreference" ref="primaryReadPref" />
+	</bean>
+
+	<bean id="primaryReadPref" class="com.mongodb.ReadPreference"
+		factory-method="primaryPreferred" />
+	<mongo:repositories base-package="com.pvamu.timesheet.dao"
+		mongo-template-ref="mongoTemplate" />
+
+	<util:list id="descendingOrderedQueues" value-type="java.lang.String">
+		<value>SHCQ_SPURetr</value>
+	</util:list>
+
+</beans>

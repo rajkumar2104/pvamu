@@ -1,0 +1,85 @@
+</br>
+<div align="left">
+		
+	<h5 align="right"><span style="color:blue;" ng-show="approveStatus == null">Not submitted</span> 
+    <span style="color:yellow" ng-show="approveStatus == 'submitted'" >Submitted/Pending</span>
+    <span style="color:red"    ng-show="approveStatus == 'rejected'">Rejected</span>
+    <span style="color:green"  ng-show="approveStatus == 'approved'">Approved</span>
+    </h5>
+<form name="searchCustomerForm"> 
+ <fieldset ng-disabled="approveStatus != null">
+	<div class="panel panel-default panel-info">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">IT - Software Engineer III</h3>
+		</div>
+		<div class="panel-body">
+		
+
+			
+			<div class="row">
+					<div class="col-md-2"><b>Date</b></div>
+					<div class="col-md-3"><b>Description</b></div>
+					<div class="col-md-2" ><b>Amount (USD)</b></div>
+					<div class="col-md-offset-1 col-md-3" ><b>Expense Type</b></div>					
+			</div>
+		
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate1}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e1text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e1amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e1exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>
+			
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate2}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e2text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e2amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e2exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>
+			
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate3}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e3text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e3amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e3exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>
+			
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate4}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e4text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e4amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e4exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>
+			
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate5}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e5text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e5amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e5exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>	
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate6}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e6text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e6amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e6exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>	
+			<div class="row">
+					<div class="col-md-2"><b>{{formData.dueDate7}}</b></div>
+					<div class="col-md-3"><textarea rows="1"  ng-model="creit.e7text"></textarea></div>
+					<div class="col-md-2"><input  type="number" min="0"  ng-model="creit.e7amount"  value="0" required="required"></div>
+					<div class="col-md-offset-1 col-md-3"><select  ng-model="creit.e7exType" ng-options="option as option for option in expenseType" required></select></div>
+			</div>			
+			
+		
+		</div>
+		<div class="row">
+		<div class="col-md-6"></div>
+			<div class="col-md-3"><button type="button" class="btn btn-primary" ng-disabled="!searchCustomerForm.$valid" ng-click="saveExpences()"  >Submit Expences</button></div>
+		</div>
+		</br>
+		
+	</div>
+</fieldset>
+</form>
+</div>
