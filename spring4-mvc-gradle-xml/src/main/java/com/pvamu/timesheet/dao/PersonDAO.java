@@ -1,5 +1,7 @@
 package com.pvamu.timesheet.dao;
 
+import java.util.List;
+
 import com.pvamu.timesheet.domain.Person;
 
 public interface PersonDAO {	
@@ -8,4 +10,5 @@ public interface PersonDAO {
 	Person savePerson(Person req);
 	Person updatePerson(Person req);
 	Person updateStatus(Person req);
+	List<Person> getAllPerson();
 }

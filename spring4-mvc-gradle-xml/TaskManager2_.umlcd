@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_0R_v4I4FEeWGg-GOgWquDg">
+  <modelElement href="TaskManager2.uml#_x3k74I4FEeWGg-GOgWquDg"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_0f7eMI4FEeWGg-GOgWquDg" name="com">
+    <modelElement href="TaskManager2.uml#_y2aisI4FEeWGg-GOgWquDg"/>
+    <visualProperties xmi:id="_0f7eMY4FEeWGg-GOgWquDg" position="50.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_0gBk0I4FEeWGg-GOgWquDg" name="java">
+    <modelElement href="TaskManager2.uml#_y2ais44FEeWGg-GOgWquDg"/>
+    <visualProperties xmi:id="_0gBk0Y4FEeWGg-GOgWquDg" position="-115.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_0gHrcI4FEeWGg-GOgWquDg" name="org">
+    <modelElement href="TaskManager2.uml#_y2ait44FEeWGg-GOgWquDg"/>
+    <visualProperties xmi:id="_0gHrcY4FEeWGg-GOgWquDg" position="200.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

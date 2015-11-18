@@ -22,6 +22,7 @@ public class EmployeeTimeSheet implements Serializable {
 	private String approveStatus;
 	private int totalAmount;
 	private boolean paidStatus;
+	private String commends;
 	
 	public String getId() {
 		return id;
@@ -95,18 +96,20 @@ public class EmployeeTimeSheet implements Serializable {
 	public void setPaidStatus(boolean paidStatus) {
 		this.paidStatus = paidStatus;
 	}
+	public String getCommends() {
+		return commends;
+	}
+	public void setCommends(String commends) {
+		this.commends = commends;
+	}
 	@Override
 	public String toString() {
 		return "EmployeeTimeSheet [id=" + id + ", date=" + date + ", workedHours=" + workedHours + ", projectName="
 				+ projectName + ", employeeId=" + employeeId + ", detaillTimeSheet=" + detaillTimeSheet
 				+ ", detaillExpences=" + detaillExpences + ", totalExpencesAmount=" + totalExpencesAmount
 				+ ", totalworkAmount=" + totalworkAmount + ", approveStatus=" + approveStatus + ", totalAmount="
-				+ totalAmount + ", paidStatus=" + paidStatus + "]";
+				+ totalAmount + ", paidStatus=" + paidStatus + ", commends=" + commends + "]";
 	}
-	
-	
-	
-	
 	
 
 }

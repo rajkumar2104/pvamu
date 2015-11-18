@@ -1,5 +1,7 @@
 package com.pvamu.timesheet.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
@@ -46,6 +48,12 @@ public class PersonDAOImpl implements PersonDAO {
 		 update.set("activeStatus", req.isActiveStatus());
 		 return this.mongoOps.findAndModify(query, update, FindAndModifyOptions.options().returnNew(true), Person.class);
 		
+	}
+
+	@Override
+	public List<Person> getAllPerson() {
+		
+		return this.mongoOps.findAll(Person.class, PERSON_COLLECTION);
 	}
 
 }

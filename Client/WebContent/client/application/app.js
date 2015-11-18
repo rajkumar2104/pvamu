@@ -36,15 +36,50 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
 routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService', '$dialogs', 'ngTableParams', '$filter', 'userInfoService',
 		function($scope, $rootScope, HpIncHttpService, $dialogs, ngTableParams, $filter, userInfoService) {
+		var emplId = userInfoService.getProfile().id ;
+		var emplType = userInfoService.getProfile().emplyeeType;
+		$scope.isManager = (emplType == 'Manager' ? true : false);
+		$scope.isContractor = (emplType == 'Contractor' ? true : false);
+		$scope.isVendor = (emplType == 'Vendor' ? true : false);
+		$scope.isFinance = (emplType == 'Finance' ? true : false);
+		
+		
+		
+			$scope.tabs = [ {
+				"heading" : "Time Sheet",
+				"active" : !$scope.isVendor,
+				"template" : "client/application/tab1.html",
+				"show" : !$scope.isVendor
+			}, {
+				"heading" : "Expenses",
+				"active" : false,
+				"template" : "client/application/tab2.html",
+				"show" : !$scope.isVendor
+			}, {
+				"heading" : "History",
+				"active" : $scope.isVendor,
+				"template" : "client/application/tab3.html",
+				"show" : true
+			}, {
+				"heading" : "Enroll",
+				"active" : false,
+				"template" : "client/application/login/registoration-model.html",
+				"show" : $scope.isManager
+			} ];
+
 			$scope.creit = {};
-
+			$scope.con = {};
+			$scope.per ={};
+			
+			
+			$scope.creit.approveStatus="submitted";
 			$scope.expenseType = [ 'No Bill', 'Gas', 'Telephone', 'Food', 'Metrial' ];
-			//var host ="http://pvamu-onlinetimesheet.rhcloud.com/";
-			var host = "http://localhost:8080/";
+			var host ="http://pvamu-onlinetimesheet.rhcloud.com/TaskManager";
+			//var host = "http://localhost:8080/TimeSheet/";
 
-			var promise = HpIncHttpService.getHttpGetConnection(host + "TimeSheet/util/project/getAllProjectDetail");
+			var promisePro = HpIncHttpService.getHttpGetConnection(host + "/util/project/getAllProjectDetail");
 
-			promise.then(function(result) {
+			promisePro.then(function(result) {
 				$scope.projectDetails = result;
 
 			}, function(reason) {
@@ -52,16 +87,64 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 				$dialogs.error("Error!", "Please re-submit : ");
 			});
 
+			var promisePro = HpIncHttpService.getHttpGetConnection(host + "/vendor/getAllVendor");
+
+			promisePro.then(function(result) {
+				$scope.vendorDeatils = result;
+
+			}, function(reason) {
+				alert('Failed: ' + reason);
+				$dialogs.error("Error!", "Please re-submit : ");
+			});
+			
+			
+			var promiseAllUser = HpIncHttpService.getHttpGetConnection(host + "/util/person/getAllPerson");
+
+			promiseAllUser.then(function(result) {
+				$scope.allusers = result;
+
+			}, function(reason) {
+				alert('Failed: ' + reason);
+				$dialogs.error("Error!", "Please re-submit : ");
+			});
+			
+			
+			$scope.getcandiateDeteails= function(){
+				if (!$scope.isContractor){
+					 emplId = userInfoService.getProfile().id ;
+					
+					var person = {
+							
+							"userName" : $scope.per.personObj.userName,
+							"password" : $scope.per.personObj.password
+						}
+
+						var promise = HpIncHttpService.getHttpPostConnection(host + "/util/person/getPerson", person);
+
+						promise.then(function(result) {
+							 emplId = result.id;
+							 $scope.loadDate();
+							 $scope.getHistory();
+						}, function(reason) {
+							$scope.error = response.message;
+							$scope.dataLoading = false;
+							$dialogs.error("Error!", "Please try again ");
+						});
+				}
+			}
+			
+
 			var objId = null;
 			var previousData = null;
+			
 			$scope.loadDate = function() {
 				previousData = null;
 				var objId = null;
 				var fetchdata = {
 					"date" : $scope.formData.dueDate1,
-					"employeeId" : userInfoService.getProfile().id
+					"employeeId" : emplId
 				};
-				var promise = HpIncHttpService.getHttpPostConnection(host + "TimeSheet/employee/get/allTimesheet", fetchdata);
+				var promise = HpIncHttpService.getHttpPostConnection(host + "/employee/get/allTimesheet", fetchdata);
 
 				promise.then(function(result) {
 					console.log("enna :" + result);
@@ -77,10 +160,15 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 					$dialogs.error("Error!", "Please re-submit : ");
 				});
 			}
+			
+			
+			
 
 			$scope.approveStatus = null;
 			$scope.inserData = function() {
 				$scope.approveStatus = previousData.approveStatus;
+				$scope.creit.approveStatus = $scope.approveStatus;
+				$scope.creit.commends = previousData.commends;
 				objId = previousData.id;
 
 				$scope.creit.projectName = previousData.projectName;
@@ -146,6 +234,8 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 
 				$scope.creit.satText = "Week end Holiday.";
 				$scope.creit.sunText = "Week end Holiday.";
+				
+				$scope.creit.approveStatus="submitted";
 			}
 
 			//$scope.init();
@@ -153,20 +243,6 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 			$scope.example = {
 				value : new Date()
 			};
-
-			$scope.tabs = [ {
-				"heading" : "Time Sheet",
-				"active" : true,
-				"template" : "client/application/tab1.html"
-			}, {
-				"heading" : "Expenses",
-				"active" : false,
-				"template" : "client/application/tab2.html"
-			}, {
-				"heading" : "History",
-				"active" : false,
-				"template" : "client/application/tab3.html"
-			} ];
 
 			var expences = [];
 			$scope.expencesObj = function() {
@@ -290,16 +366,18 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 					detaillExpences : expences,
 					workedHours : ($scope.creit.sat + $scope.creit.fri + $scope.creit.thu + $scope.creit.wed + $scope.creit.tue + $scope.creit.mon + $scope.creit.sun),
 					projectName : $scope.creit.projectName.name,
-					employeeId : userInfoService.getProfile().id,
-					approveStatus : "submitted"
+					employeeId : emplId,
+					approveStatus : $scope.creit.approveStatus,
+					commends : $scope.creit.commends
 				};
 
-				var promise = HpIncHttpService.getHttpPostConnection(host + "TimeSheet/employee/save/timesheet", weekTimeSheet);
+				var promise = HpIncHttpService.getHttpPostConnection(host + "/employee/save/timesheet", weekTimeSheet);
 
 				promise.then(function(result) {
 					results = result;
 					console.log(result);
 					$dialogs.success("Success!", "you have submitted ");
+					$scope.approveStatus = 'submitted';
 				}, function(reason) {
 					alert('Failed: ' + reason);
 					$dialogs.error("Error!", "Please re-submit : ");
@@ -416,14 +494,49 @@ routerApp.controller('TabsetCtrl', [ '$scope', '$rootScope', 'HpIncHttpService',
 
 			$scope.getHistory = function() {
 				var param = {
-					employeeId : userInfoService.getProfile().id,
+					employeeId : emplId,
 				}
-				var promise = HpIncHttpService.getHttpPostConnection(host + "TimeSheet/employee/get/allTimesheet", param);
+				var promise = HpIncHttpService.getHttpPostConnection(host + "/employee/get/allTimesheet", param);
 
 				promise.then(function(result) {
 					$scope.reports = result;
 					$scope.tableParams.reload();
 					$scope.tableParams.page(1);
+				}, function(reason) {
+					alert('Failed: ' + reason);
+					$dialogs.error("Error!", "Please re-submit : ");
+				});
+
+			};
+
+			$scope.registor = function() {
+				var properties = {
+					laptop : $scope.con.laptop,
+					phone : $scope.con.phone,
+					car : $scope.con.car,
+					prodServerAccess : $scope.con.prodAccess,
+				}
+
+				var param = {
+					firstName : $scope.con.fName,
+					lastName : $scope.con.lName,
+					emplyeeType : $scope.con.emplType,
+					properties : properties,
+					projectName : $scope.con.project,
+					startDate : $scope.con.sDate,
+					endDate : $scope.con.eDate,
+					activeStatus : $scope.con.active,
+					emailId : $scope.con.email,
+					phone : $scope.con.phoneNo,
+					hoursAmount : $scope.con.hourAmount,
+					Vendor_Id : $scope.con.vondor,
+					userName : $scope.con.uName,
+					password : "test123",
+				}
+				var promise = HpIncHttpService.getHttpPostConnection(host + "util/person/registoration", param);
+
+				promise.then(function(result) {
+					$dialogs.success("Success!", "you have Enrolled ");
 				}, function(reason) {
 					alert('Failed: ' + reason);
 					$dialogs.error("Error!", "Please re-submit : ");

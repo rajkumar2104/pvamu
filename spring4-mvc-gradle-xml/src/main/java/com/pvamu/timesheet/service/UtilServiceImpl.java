@@ -50,4 +50,10 @@ public class UtilServiceImpl implements UtilService {
 		return personDao.updateStatus(req);
 	}
 
+	@Override
+	public List<Person> getAllPerson() {
+		
+		return personDao.getAllPerson();
+	}
+
 }

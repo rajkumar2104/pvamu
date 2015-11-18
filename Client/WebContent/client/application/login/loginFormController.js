@@ -6,7 +6,7 @@ routerApp.controller('LoginController', [ '$scope', '$rootScope', '$location', '
 		function($scope, $rootScope, $location, $modal, $dialogs, HpIncHttpService, userInfoService) {
 			// reset login status
 			userInfoService.ClearCredentials();
-			var host = "http://localhost:8080/";
+			var host = "http://pvamu-onlinetimesheet.rhcloud.com/TaskManager";
 			$scope.login = function() {
 				$scope.dataLoading = true;
 
@@ -15,7 +15,7 @@ routerApp.controller('LoginController', [ '$scope', '$rootScope', '$location', '
 					"password" : $scope.password
 				}
 
-				var promise = HpIncHttpService.getHttpPostConnection(host + "TimeSheet/util/person/getPerson", person);
+				var promise = HpIncHttpService.getHttpPostConnection(host + "/util/person/getPerson", person);
 
 				promise.then(function(result) {
 

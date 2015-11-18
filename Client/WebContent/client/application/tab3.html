@@ -15,6 +15,7 @@
           <td data-title="'Worked Hours'" sortable="'rawaddr_hash_ky'">{{row.workedHours}}</td>
            <td data-title="'projectId'">{{row.projectName}}</td>
            <td data-title="'Status'">{{row.approveStatus}}</td>
+           <td data-title="'Paid'" ng-show="isVendor">{{row.approveStatus}}</td>
         </tr>
       </table>
     </div>

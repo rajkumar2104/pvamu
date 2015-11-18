@@ -7,7 +7,7 @@
     <span style="color:green"  ng-show="approveStatus == 'approved'">Approved</span>
     </h5>
 <form name="searchCustomerForm"> 
- <fieldset ng-disabled="approveStatus != null">
+ <fieldset ng-disabled="approveStatus != null && !isManager">
 	<div class="panel panel-default panel-info">
 
 		<div class="panel-heading">
@@ -77,6 +77,9 @@
 		<div class="col-md-6"></div>
 			<div class="col-md-3"><button type="button" class="btn btn-primary" ng-disabled="!searchCustomerForm.$valid" ng-click="saveExpences()"  >Submit Expences</button></div>
 		</div>
+		
+		
+		
 		</br>
 		
 	</div>

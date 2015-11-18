@@ -1,54 +1,133 @@
 
 
 <div class="row">
-    <div class="col-md-10">
+	<div class="col-md-10">
 		<form role="form">
-			<h2>Please Sign Up <small>It's free and always will be.</small></h2>
+			<h3>Sign Up Contractor</h3>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-md-offset-1 col-md-5">
 					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" tabindex="1">
+						<input type="text" name="first_name" id="first_name" class="form-control input-sm" ng-model="con.fName" placeholder="First Name">
 					</div>
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
-						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" tabindex="2">
+						<input type="text" name="last_name" id="last_name" class="form-control input-sm" ng-model="con.lName" placeholder="Last Name">
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="col-md-offset-1 col-md-10">
-			<div class="form-group">
-				<input type="text" name="display_name" id="display_name" class="form-control input-sm" placeholder="Display Name" tabindex="3">
-			</div>
-			</div>
-			</div>
-			<div class="row">
-				<div class="col-md-offset-1 col-md-10">
-			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" tabindex="4">
-			</div>
-			</div>
-			</div>
-			<div class="row">
-				<div class="col-md-offset-1 col-md-5">
+				<div class="col-md-offset-1 col-md-3">
 					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" tabindex="5">
+						<input type="text" name="display_name" id="display_name" class="form-control input-sm" ng-model="con.uName" placeholder="User Name">
 					</div>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-3">
 					<div class="form-group">
-						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" tabindex="6">
+						<input type="text" name="email" id="email" class="form-control input-sm" ng-model="con.email" placeholder="Email Address">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<input type="text" name="phone" id="phone" class="form-control input-sm" ng-model="con.phoneNo" placeholder="Phone number">
 					</div>
 				</div>
 			</div>
-			
-			
+
+
+			<div class="row">
+				<div class="col-md-offset-1 col-md-3">
+					<div class="form-group">
+						<input id="datepicker" type="text" class="form-control input-sm" ng-model="con.sDate" placeholder="Start Date mm/dd/yyyy">
+
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<input id="datepicker" type="text" class="form-control input-sm" ng-model="con.eDate" placeholder="End Date mm/dd/yyyy">
+					</div>
+				</div>
+				<div class="col-md-3" align="left">
+					<div class="form-group">
+						<input type="checkbox" ng-model="con.active"> <span><small>Active this user</small></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="row radio ">
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-2" align="left">
+						<input type="radio" ng-model="con.emplType" value="Contractor"> <span><small>Contractor</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="radio" ng-model="con.emplType" value="Manager"><span><small>Manager</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="radio" ng-model="con.emplType" value="Vendor"> <span><small>Vendor</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="radio" ng-model="con.emplType" value="Finance"> <span><small>Finance</small></span>
+					</div>
+				</div>
+
+			</div>
+
+
+
+
+
+			<div class="row checkbox">
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-2" align="left">
+						<input type="checkbox" ng-model="con.laptop"> <span><small>Laptop</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="checkbox" ng-model="con.phone"> <span><small>Phone</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="checkbox" ng-model="con.car"> <span><small>Car</small></span>
+					</div>
+					<div class="col-md-2" align="left">
+						<input type="checkbox" ng-model="con.prodAccess"> <span><small>ProdAccess</small></span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-offset-1 col-md-3" align="left">
+						<span><small>Vendor </small></span> <select class="input-sm" ng-model="con.vondor" ng-options="c.companyName for c in vendorDeatils | orderBy:'name'" required></select>
+					</div>
+
+					<div class="col-md-3" align="left">
+						<span><small>Project</small></span> <select multiple="multiple" class="input-sm " ng-model="con.project" ng-options="c.name for c in projectDetails | orderBy:'name'" required>
+						</select>
+					</div>
+					<div class="col-md-4" align="left">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-4" align="left">
+									<small>Per Hour</small>
+								</div>
+								<div class="col-md-6">
+									<input type="number" ng-model="con.hourAmount" class="form-control input-sm" min="10">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-6 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-sm" tabindex="7"></div>
-				<div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-sm">Sign In</a></div>
+				<div class="col-md-offset-6 col-md-2">
+					<input type="submit" value="Register" class="btn btn-primary btn-block btn-sm" ng-click="registor()">
+				</div>
+
 			</div>
 		</form>
 	</div>

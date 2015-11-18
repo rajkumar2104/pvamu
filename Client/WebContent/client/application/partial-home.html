@@ -14,21 +14,52 @@
 			</p>
 		</div>
 
-
-		<div class="col-md-2">
-			<b>Select your project </b>
+		<div ng-if="!isContractor">
+			<div class="col-md-3">
+				<b>Select your Candidate </b>
+			</div>
+			<div class="col-md-3">
+				<select class="form-control" ng-model="per.personObj" ng-options="a.firstName for a in allusers | orderBy:'firstName'" ng-change= "getcandiateDeteails()" required>
+				</select>
+			</div>
 		</div>
-		<div class="col-md-4">
-			<select class="form-control"  ng-model="creit.projectName" ng-options="c.name for c in projectDetails | orderBy:'name'" required>
-			</select>
+		
+		
+            <div class="col-md-3">
+                <b>Select your project </b>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" ng-model="creit.projectName" ng-options="c.name for c in projectDetails | orderBy:'name'" required>
+                </select>
+            </div>
+        
+	</div>
+	<div ng-if="formData.dueDate !=null && formData.dueDate !='' && ( creit.projectName != null && creit.projectName != '' ) || ( creit.personObj != null && creit.personObj != '' ) ">
+		<div>
+			<tabset> <tab ng-repeat="tab in tabs" heading="{{ tab.heading }}" active="tab.active" ng-show="tab.show">
+			<div ng-include="tab.template"></div>
+			</tab> </tabset>
 		</div>
 	</div>
-    <div ng-if="formData.dueDate !=null && formData.dueDate !='' && creit.projectName != null && creit.projectName != ''">
 	
-		<tabset> 
-		  <tab ng-repeat="tab in tabs" heading="{{ tab.heading }}" active="tab.active">
-		      <div ng-include="tab.template"></div>
-		  </tab> 
-		</tabset>
-	</div>
+	<div class="row radio " ng-show="isManager">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-2" align="left">
+                       <input type="radio" ng-model="creit.approveStatus" value="rejected" ><span style="color:red;"><small>Reject</small></span>
+                    </div>
+                    <div class="col-md-2" align="left">
+                        <input type="radio" ng-model="creit.approveStatus" value="approved"> <span style="color:green;"><small>Approve</small></span>
+                    </div>
+                    <div class="col-md-2" align="left">
+                        <input type="radio" ng-model="creit.approveStatus" value="submitted" checked="checked"> <span style="color:yellow"><small>submitted</small></span>
+                    </div>
+                    
+                </div>
+
+            </div>
+            
+        <div ng-show="isManager">
+                   <textarea rows="5" cols="50" ng-model="creit.commends"></textarea>
+        </div>    
+	
 </div>

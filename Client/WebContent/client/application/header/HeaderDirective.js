@@ -13,8 +13,10 @@ app.directive('adHeader', [
 
 
 
-function headerCtrl($scope, userInfoService) {	
+function headerCtrl($scope, userInfoService,$location) {	
 	
 	$scope.profile = userInfoService.getProfile();
-
+	$scope.logout = function(){
+		$location.path('/login');
+	}
 }

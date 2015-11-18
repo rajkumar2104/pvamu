@@ -33,6 +33,12 @@ public class UtilController {
 		return service.getPerson(req);	 
 	 }
 	 
+	 @RequestMapping(value="/person/getAllPerson",method = RequestMethod.GET,headers="Accept=application/json")
+	 @ResponseBody
+	 public List<Person> getAllPerson() {
+		return service.getAllPerson();	 
+	 }
+	 
 	 @RequestMapping(value="/person/updatePerson",method = RequestMethod.POST,headers="Accept=application/json")
 	 @ResponseBody
 	 public Person updatePerson(@RequestBody Person req) {

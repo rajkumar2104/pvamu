@@ -1,12 +1,14 @@
 <div align="left">
+        <div style="color:red"> {{creit.commends}}</div>
 	    
 	<h5 align="right"><span style="color:blue;" ng-show="approveStatus == null">Not submitted</span> 
 	<span style="color:yellow" ng-show="approveStatus == 'submitted'" >Submitted/Pending</span>
 	<span style="color:red"    ng-show="approveStatus == 'rejected'">Rejected</span>
 	<span style="color:green"  ng-show="approveStatus == 'approved'">Approved</span>
 	</h5>
+	
 	<form name="searchCustomerForm"> 
-	 <fieldset ng-disabled="approveStatus != null">
+	 <fieldset ng-disabled="approveStatus != null && !isManager">
 	<div class="panel panel-default panel-info">
 
 		<div class="panel-heading">

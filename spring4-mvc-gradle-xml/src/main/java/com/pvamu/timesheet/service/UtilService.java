@@ -17,5 +17,5 @@ public interface UtilService {
 	Person updatePerson(Person req);
 	Person updateStatus(Person req);
 	
-	
+	List<Person> getAllPerson();
 }
